@@ -9,6 +9,10 @@ import { RestaurantData } from '../../Data/RestaurantData';
 import FoodCard from '../FoodCard/FoodCard';
 import RestaurantsCard from '../FoodCard/NearestRestaurants';
 
+// count down component
+import CountDown from 'react-native-countdown-component'; 
+import OnSpecialCard from '../FoodCard/OnSpecialCard';
+
 const height = Dimensions.get('screen').height;
 const width = Dimensions.get('screen').width;
 
@@ -87,7 +91,32 @@ const HomeScreen = () => {
 
       </View>
 
-      
+      {/* restaurants on special */}
+      <View style={styles.categoriesView}>
+          <Text style={styles.title}>On Special</Text>
+          <View style={{marginVertical:6, marginHorizontal:20, paddingVertical:5}}>
+          <FlatList
+                data={RestaurantData}
+                keyExtractor={(item,index)=>index.toString()}
+                horizontal={true}
+                showsHorizontalScrollIndicator={false}
+                renderItem={({item})=>(
+                  <>
+                    <OnSpecialCard
+                      images = {item.displayImage}
+                      farAway = {item.distance}
+                      businessAddress = {item.address}
+                      numberOfReviews = {item.numberOfReviews}
+                      averageReviews = {item.averageReviews}
+                      restaurantName = {item.name}
+                    />
+                  </>
+                )}
+              />
+          </View>
+      </View>
+
+      {/* popular restaurants */}
       <View style={styles.categoriesView}>
 
         <Text style={styles.title}>Popular Places</Text>
@@ -116,12 +145,14 @@ const HomeScreen = () => {
         </View>
       </View>
 
+      {/* restaurants */}
       <View style={styles.categoriesView}>
               
-          <Text style={styles.title}>Restaurants In Your Area</Text>
+          <Text style={styles.title}>All Restaurants Near You</Text>
 
           {/* nearest restaurants list */}
           <View style={{marginVertical:6, marginHorizontal:20, paddingVertical:5, paddingBottom:70}}>
+                  
             <FlatList
                   data={RestaurantData}
                   keyExtractor={(item,index)=>index.toString()}
@@ -143,7 +174,6 @@ const HomeScreen = () => {
           </View>
 
       </View>
-
 
       </ScrollView>
         
