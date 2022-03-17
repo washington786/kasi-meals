@@ -34,6 +34,8 @@ export default function NavigationStackScreen(){
          <stack.Screen name="mapScreen" component={MapScreen} options={{
             headerShown:false}}/>
 
+        
+
     </stack.Navigator>
     )
 

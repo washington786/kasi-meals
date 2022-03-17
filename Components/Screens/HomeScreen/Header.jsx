@@ -53,10 +53,11 @@ export default Header;
 
 const styles = StyleSheet.create({
     iconMenuView: {
-        marginVertical: 20,
+        // marginVertical: 20,
         marginHorizontal: 20,
-        paddingVertical:10,
-        paddingHorizontal:6
+        paddingVertical:10, 
+        paddingHorizontal:6,
+        marginTop:10
     },
     contentCon:{
         flexDirection: 'row',
