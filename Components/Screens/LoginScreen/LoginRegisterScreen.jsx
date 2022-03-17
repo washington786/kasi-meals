@@ -100,7 +100,7 @@ const LoginRegisterScreen=({navigation})=>{
             />
           </TouchableOpacity>
         </View>
-        <TouchableOpacity style={styles.button} onPress={() =>navigation.navigate('homeScreen')}>
+        <TouchableOpacity style={styles.button} onPress={() =>navigation.navigate('bottomTabs')}>
           <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
 
@@ -221,7 +221,7 @@ const LoginRegisterScreen=({navigation})=>{
             />
           </TouchableOpacity>
         </View>
-        <TouchableOpacity style={styles.button} onPress={() =>navigation.navigate('homeScreen')}>
+        <TouchableOpacity style={styles.button} onPress={() =>navigation.navigate('bottomTabs')}>
           <Text style={styles.buttonText}>Register</Text>
         </TouchableOpacity>
         

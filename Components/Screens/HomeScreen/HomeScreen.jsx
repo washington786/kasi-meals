@@ -10,13 +10,12 @@ import FoodCard from '../FoodCard/FoodCard';
 import RestaurantsCard from '../FoodCard/NearestRestaurants';
 
 // count down component
-import CountDown from 'react-native-countdown-component'; 
 import OnSpecialCard from '../FoodCard/OnSpecialCard';
 
 const height = Dimensions.get('screen').height;
 const width = Dimensions.get('screen').width;
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
 
   const [delivery, setDelivery] = useState(true);
   const [indexCheck,setIndexCheck] = useState('0');
@@ -24,13 +23,13 @@ const HomeScreen = () => {
   return (
     <View style={styles.container}>
         
-        {/* header */}
-        <Header/>
+    {/* header */}
+      <Header/>
 
       <ScrollView
         //  stickyHeaderIndices={[0]}
         showsVerticalScrollIndicator={false}
-        style={{height: height, width: width, backgroundColor:'#fff', paddingBottom:70}}
+        style={{height: height, width: width, backgroundColor:'#fff', paddingBottom:200}}
       >
         {/* delivery and pick up buttons */}
         <View>
@@ -176,6 +175,14 @@ const HomeScreen = () => {
       </View>
 
       </ScrollView>
+
+      <View style={styles.floatingButton}>
+        <TouchableOpacity onPress={() =>navigation.navigate('mapScreen')}>
+            <View>
+                  <Icons name='map-search-outline' size={25} color='#ff0000'/>
+            </View>
+        </TouchableOpacity>
+      </View>
         
     </View>
   )
@@ -188,6 +195,7 @@ const styles = StyleSheet.create({
         width: width,
         height: height,
         backgroundColor:'#ffffff',
+        position: 'relative',
     },
     title: {
         fontWeight:'bold',
@@ -249,6 +257,15 @@ const styles = StyleSheet.create({
       fontSize: 10,
       color:'#333'
     },
-    
+    floatingButton:{
+      position: 'absolute',
+      right: 8,
+      height:60,
+      width: 60,
+      bottom: 150,
+      backgroundColor:'#fff',
+      padding: 5,
+      borderRadius:40, justifyContent:'center', alignItems: 'center',elevation:5
+    }
 
 })

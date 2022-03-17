@@ -16,9 +16,9 @@ const Header = () => {
 
   return (
     <View>
-        <View style={styles.iconMenuView}>
+        {/* <View style={styles.iconMenuView}>
             <Icon name="stream" size={23} color='#E44D26' style={styles.icon}/>
-        </View>
+        </View> */}
         <View style={styles.contentCon}>
             <View style={styles.textCon}>
                 <Text style={styles.title}>Experience the {"\n"}great food</Text>
@@ -63,6 +63,7 @@ const styles = StyleSheet.create({
         justifyContent:'space-between',
         alignItems: 'center',
         marginHorizontal: 20,
+        marginVertical:15
     },
     textCon:{
         flexDirection: 'row',
