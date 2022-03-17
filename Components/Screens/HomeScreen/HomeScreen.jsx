@@ -41,7 +41,11 @@ const HomeScreen = ({navigation}) => {
                   </View>
               </TouchableOpacity>
 
-              <TouchableOpacity style={styles.buttons} onPress={() =>{setDelivery(false)}}>
+              <TouchableOpacity style={styles.buttons} 
+              onPress={() =>{
+                setDelivery(false)
+                 navigation.navigate('mapScreen')
+                }}>
                   <View style={{backgroundColor: delivery?'#eee':'#E44D26', flexDirection:'row', padding:5, borderRadius:40,justifyContent:'space-evenly', alignItems: 'center', elevation:5}}>
                     <Icons name="car-pickup" size={20} color={delivery?'#333':'#fff'} style={{padding:3}}/>
                     <Text style={{color:delivery?'#333':'#fff', padding:3}}>Pick Up</Text>
@@ -51,7 +55,7 @@ const HomeScreen = ({navigation}) => {
         </View>
         
 
-      {/* location and delivery */}
+      {/* location and filter */}
       <View style={{flexDirection:'row', justifyContent:'space-between', alignItems: 'center', paddingVertical:10}}>
         <View style={styles.locationView}>
 
