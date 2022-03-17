@@ -176,13 +176,15 @@ const HomeScreen = ({navigation}) => {
 
       </ScrollView>
 
-      <View style={styles.floatingButton}>
-        <TouchableOpacity onPress={() =>navigation.navigate('mapScreen')}>
-            <View>
-                  <Icons name='map-search-outline' size={25} color='#ff0000'/>
-            </View>
-        </TouchableOpacity>
-      </View>
+      {delivery &&
+        <View style={styles.floatingButton}>
+          <TouchableOpacity onPress={() =>navigation.navigate('mapScreen')}>
+              <View>
+                    <Icons name='map-search-outline' size={25} color='#ff0000'/>
+              </View>
+          </TouchableOpacity>
+        </View>
+      }
         
     </View>
   )
