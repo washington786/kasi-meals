@@ -1,16 +1,41 @@
-import React,{ useState} from 'react';
+import React,{ useState,useRef} from 'react';
 import { StyleSheet, Text, View,Dimensions, TextInput, TouchableWithoutFeedback,Modal, TouchableOpacity, FlatList, Keyboard} from 'react-native'
 // icons
 import FIcons from 'react-native-vector-icons/Feather';
 import Icons from 'react-native-vector-icons/MaterialIcons';
 import { categoryData } from '../../Data/CategoryData';
+import filter from 'lodash/filter';
+
+import { useNavigation } from '@react-navigation/native';
 
 const height = Dimensions.get('screen').height;
 const width = Dimensions.get('screen').width;
 
+
 export default function SearchComponent() {
 
-const [modalVisible,setModalVisible] = useState(false)
+const [modalVisible,setModalVisible] = useState(false);
+const [data,setData] = useState([...categoryData]);
+
+const navigation = useNavigation();
+
+const textInput = useRef(0);
+
+// filtering
+const contains=({name},query)=>{
+    if (name.includes(query)) {
+        return true;
+    }
+    return false;
+}
+
+// handle search query
+const handleSearch=(text)=>{
+    const dataS=filter(categoryData,userSearch=>{
+        return contains(userSearch,text);
+    })
+    setData([...dataS])
+}
 
   return (
     <View style={{justifyContent: 'center', alignItems: 'center', paddingTop:10}}>
@@ -44,7 +69,15 @@ const [modalVisible,setModalVisible] = useState(false)
                 <View style={{justifyContent: 'center', alignItems: 'center', paddingTop:10}}>
                     <View style={styles.searchCon}>
                         <FIcons name='search' size={25} color='grey' style={{paddingHorizontal:5}}/>
-                        <TextInput style={{flex:1, paddingHorizontal:10}} placeholder="What would you like to eat today?" editable={true} selectTextOnFocus={true} autoFocus={true}/>
+                        <TextInput 
+                            style={{flex:1, paddingHorizontal:10}} 
+                            placeholder="What would you like to eat today?"
+                            editable={true} 
+                            selectTextOnFocus={true}
+                            autoFocus={true}
+                            ref={textInput}
+                            onChangeText={handleSearch}
+                          />
                     </View>
                 </View>
 
@@ -57,6 +90,7 @@ const [modalVisible,setModalVisible] = useState(false)
                             <TouchableOpacity 
                             onPress={() =>{
                                     Keyboard.dismiss
+                                    navigation.navigate('searchResults',{item: item.name})
                                     setModalVisible(false)
                                 }}
                                 >

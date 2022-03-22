@@ -15,7 +15,6 @@ export default function OnSpecialCard({
   businessAddress,
   farAway,
   images,
-  screenWidth,
 }) {
   return (
     <TouchableOpacity>

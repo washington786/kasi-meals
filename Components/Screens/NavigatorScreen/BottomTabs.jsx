@@ -6,9 +6,9 @@ import Octicons from 'react-native-vector-icons/Octicons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 // screens
 import HomeScreen from '../HomeScreen/HomeScreen';
-import SearchScreen from '../BottomTabScreens/SearchScreen';
 import OrderScreen from '../BottomTabScreens/OrdersScreen';
 import AccountScreen from '../BottomTabScreens/AccountScreen';
+import { SearchStackTabs } from './SearchStackTabs';
 
 const Tab = createBottomTabNavigator();
 
@@ -40,7 +40,7 @@ const BottomTabs = () => {
             tabBarInactiveTintColor:'grey'
         }}/>
 
-        <Tab.Screen name="Search" component={SearchScreen} options={{
+        <Tab.Screen name="Search" component={SearchStackTabs} options={{
             tabBarIcon:({color})=>(
                 <Octicons name='search' size={30} color={color} style={{paddingVertical:0}}/>
             ),

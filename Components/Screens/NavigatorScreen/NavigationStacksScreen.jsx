@@ -9,6 +9,7 @@ import HomeScreen from '../HomeScreen/HomeScreen';
 import NewWelcomeScreen from '../WalkthroughScreen/NewWelcomeScreen';
 import BottomTabs from './BottomTabs';
 import MapScreen from '../MapScreen/MapScreen';
+import SearchResultsScreen from '../SearchResults/SearchResultsScreen';
 
 const stack = createNativeStackNavigator();
 
@@ -33,7 +34,6 @@ export default function NavigationStackScreen(){
 
          <stack.Screen name="mapScreen" component={MapScreen} options={{
             headerShown:false}}/>
-
         
 
     </stack.Navigator>
