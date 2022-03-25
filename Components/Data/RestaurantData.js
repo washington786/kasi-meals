@@ -15,10 +15,10 @@ export const RestaurantData=[
         averageReviews:'4.8',
         discount:0,
         productData:[
-            {
+            {   id:0,
                 productName:'Sandwich',
-                price:55,
-                image:'https://images.pexels.com/photos/1647163/pexels-photo-1647163.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+                productPrice:55,
+                productImage:'https://images.pexels.com/photos/1647163/pexels-photo-1647163.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
             }
         ]
     },
@@ -39,9 +39,10 @@ export const RestaurantData=[
         discount:0,
         productData:[
             {
+                id:1,
                 productName:'Kalino Salad',
-                price:80,
-                image:'https://images.pexels.com/photos/7282789/pexels-photo-7282789.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+                productPrice:80,
+                productImage:'https://images.pexels.com/photos/7282789/pexels-photo-7282789.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
             }
         ]
     },
@@ -62,9 +63,10 @@ export const RestaurantData=[
         discount: 10,
         productData:[ 
             {
+                id:2,
                 productName:'Chicken Thighs',
-                price:90,
-                image:'https://images.pexels.com/photos/2994900/pexels-photo-2994900.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+                productPrice:90,
+                productImage:'https://images.pexels.com/photos/2994900/pexels-photo-2994900.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
             }
         ]
     }
